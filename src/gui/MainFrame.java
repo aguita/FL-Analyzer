@@ -31,7 +31,7 @@ public class MainFrame {
     
    public static void addBackgroundToPane(JFrame frame) {
     	//JLabel background = new JLabel(new ImageIcon(constants.URLConstants.backGroundImage));
-    	frame.setContentPane(new JLabel(new ImageIcon(constants.URLConstants.backGroundImage)));
+    	frame.setContentPane(new JLabel(new ImageIcon(functions.URLConstants.backGroundImage)));
     	// pane.add(background);
     }
     
