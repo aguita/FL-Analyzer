@@ -1,12 +1,12 @@
 package main;
 
-import gui.FrameMain;
+import gui.MainFrame;
 
 public class Driver {
 
 	
 	public static void main (String [] args){
-		new FrameMain();
+		new MainFrame().createAndShowGUI();
 		
 	}
 }

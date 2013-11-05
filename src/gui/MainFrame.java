@@ -28,10 +28,11 @@ public class MainFrame {
                      size.width, size.height);
         
     }
-    
+   
    public static void addBackgroundToPane(JFrame frame) {
     	//JLabel background = new JLabel(new ImageIcon(constants.URLConstants.backGroundImage));
     	frame.setContentPane(new JLabel(new ImageIcon(functions.URLConstants.backGroundImage)));
+    	System.out.println("bgimg loaded");
     	// pane.add(background);
     }
     
