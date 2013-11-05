@@ -3,14 +3,29 @@ package windows;
 import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.ItemEvent;
+import java.awt.event.ItemListener;
+import java.awt.event.KeyEvent;
 
+import javax.swing.ButtonGroup;
+import javax.swing.JCheckBox;
 import javax.swing.JLabel;
-import javax.swing.JOptionPane;
 import javax.swing.JPanel;
+import javax.swing.JRadioButton;
 import javax.swing.JTextField;
 
+import functions.CheckBoxListener;
+
 public class Window2 extends JPanel implements ActionListener {
-    private JTextField textField;
+    JTextField locationField;
+    JTextField cargoField;
+    public static JCheckBox chinButton;
+    public static JCheckBox glassesButton;
+    public static JCheckBox hairButton;
+    public static JCheckBox teethButton;
+    CheckBoxListener boxListener = new CheckBoxListener();
+    
+    String  threeJumps = "";
 
     public Window2() 
     {
@@ -19,21 +34,44 @@ public class Window2 extends JPanel implements ActionListener {
 
     private void init() 
     {
-        setLayout(new GridLayout(1, 2));
-        JLabel userLabel = new JLabel("Your Name : ");
-        textField = new JTextField();
-        textField.addActionListener(this);
+        setLayout(new GridLayout(2, 1));
+        JLabel locationLabel = new JLabel("Your Location : ");
+        JLabel cargoLabel = new JLabel("Commoditty : ");
+        locationField = new JTextField();
+        locationField.addActionListener(this);
+        cargoField = new JTextField();
+        cargoField.addActionListener(this);
+        //cargoField.setRowSelectionInterval(0, 0);
 
-        add(userLabel);
-        add(textField);
+        add(locationLabel);
+        add(locationField);
+        add(cargoLabel);
+        add(cargoField);
+        add(locationLabel);
+        add(locationField);
+        
+        
+        JRadioButton threeJumpsButton = new JRadioButton(threeJumps);
+        threeJumpsButton.setActionCommand(threeJumps);
+
+        ButtonGroup group = new ButtonGroup();
+        group.add(threeJumpsButton);
+     
+        threeJumpsButton.setActionCommand(threeJumps);
+        //Register a listener for the check boxes.
+       // threeJumpsButton.addActionListener(boxListener);
+       // glassesButton.addItemListener((ItemListener) boxListener);
+        //hairButton.addItemListener((ItemListener) boxListener);
+        //teethButton.addItemListener((ItemListener) boxListener);
+        
     }
 
-    public void actionPerformed(ActionEvent e) 
-    {            
-        if (textField.getDocument().getLength() > 0)
-            JOptionPane.showMessageDialog(null, "Your Name is : " + textField.getText()
-                                                                            , "User\'s Name : ", JOptionPane.QUESTION_MESSAGE);
-    }
+	@Override
+	public void actionPerformed(ActionEvent e) {
+		// TODO Auto-generated method stub
+		
+	}
+
 }
 
 

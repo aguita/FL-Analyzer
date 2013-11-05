@@ -18,8 +18,8 @@ public class MainFrame {
 		
 		static Window2 win2 = new windows.Window2();
 		
-        private static final String CARD_JBUTTON =  "Card JButton";
-        private static final String CARD_JTEXTFIELD = "Card JTextField";    
+        private static final String CARD_SHIPLIST =  "Card ShipList";
+        private static final String CARD_CARGO = "Card CargoCheck";    
         
         public void createAndShowGUI() {
         	
@@ -30,8 +30,8 @@ public class MainFrame {
             // This JPanel is the base for CardLayout for other JPanels.
             final JPanel contentPane = new JPanel();
             contentPane.setLayout(new CardLayout(300, 300));
-            contentPane.add(win1, CARD_JBUTTON);
-            contentPane.add(win2, CARD_JTEXTFIELD);
+            contentPane.add(win1, CARD_SHIPLIST);
+            contentPane.add(win2, CARD_CARGO);
 
             /* We need two JButtons to go to the next Card
              * or come back to the previous Card, as and when
