@@ -3,13 +3,16 @@ package windows;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
+import javax.swing.ImageIcon;
 import javax.swing.JButton;
+import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 
 public class Window1 extends JPanel {
 	
     private ActionListener action;
+
 
     public Window1() 
     {
@@ -18,6 +21,9 @@ public class Window1 extends JPanel {
 
     private void init() 
     {
+    	
+    	JLabel background = new JLabel(new ImageIcon("/Images/backGroundImage.png"));
+
         final JButton clickButton = new JButton("CLICK ME");
         final JButton dontClickButton = new JButton("DON\'T CLICK ME");     
 
@@ -38,6 +44,7 @@ public class Window1 extends JPanel {
             }
         };
 
+        add(background);
         clickButton.addActionListener(action);
         dontClickButton.addActionListener(action);
 

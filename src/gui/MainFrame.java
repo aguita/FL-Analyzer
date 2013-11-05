@@ -3,12 +3,16 @@ package gui;
 import java.awt.BorderLayout;
 import java.awt.CardLayout;
 import java.awt.Color;
+import java.awt.FlowLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
+import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
+import javax.swing.JLabel;
 import javax.swing.JPanel;
+
 import windows.Window1;
 import windows.Window2;
 
@@ -23,6 +27,8 @@ public class MainFrame {
         
         public void createAndShowGUI() {
         	
+        	JLabel background = new JLabel(new ImageIcon("C:\\Users\\student\\git\\FL-Analyzer\\Images\\backGroundImage.png"));
+        	
             JFrame frame = new JFrame("FreeLancer Analyzer");
             frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
             frame.setLocationRelativeTo(null);
@@ -32,11 +38,11 @@ public class MainFrame {
             contentPane.setLayout(new CardLayout(300, 300));
             contentPane.add(win1, CARD_SHIPLIST);
             contentPane.add(win2, CARD_CARGO);
+           // contentPane.add(background); adds to the buttons
+            
+            JPanel backgroundPane = new JPanel();
+            //backgroundPane.add(background);
 
-            /* We need two JButtons to go to the next Card
-             * or come back to the previous Card, as and when
-             * desired by the User.
-             */
             JPanel buttonPanel = new JPanel(); 
             final JButton cargoCheck = new JButton("Cargo Check");
             cargoCheck.setBackground(Color.BLACK);
@@ -66,9 +72,11 @@ public class MainFrame {
                 }
             });
 
-            // Adding the contentPane (JPanel) and buttonPanel to JFrame.
-            frame.add(contentPane, BorderLayout.CENTER);
+            // Adding the contentPane (JPanel) and buttonPanel to JFrame.=
+            frame.add(backgroundPane);
+           frame.add(contentPane);
             frame.add(buttonPanel, BorderLayout.NORTH);
+            
 
             frame.pack();
             frame.setVisible(true);
