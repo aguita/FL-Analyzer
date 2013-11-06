@@ -8,6 +8,7 @@ import java.awt.event.ItemListener;
 import java.awt.event.KeyEvent;
 
 import javax.swing.ButtonGroup;
+import javax.swing.ImageIcon;
 import javax.swing.JCheckBox;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
@@ -15,6 +16,7 @@ import javax.swing.JRadioButton;
 import javax.swing.JTextField;
 
 import functions.CheckBoxListener;
+import gui.MainFrame;
 
 public class Window2 extends JPanel implements ActionListener {
     JTextField locationField;
@@ -34,6 +36,7 @@ public class Window2 extends JPanel implements ActionListener {
 
     private void init() 
     {
+    	final JLabel background = new JLabel(new ImageIcon("D:\\Users\\Zach\\git\\FL-Analyzer3\\Images\\backGroundImage.png"));
         setLayout(new GridLayout(2, 1));
         JLabel locationLabel = new JLabel("Your Location : ");
         JLabel cargoLabel = new JLabel("Commoditty : ");
@@ -43,6 +46,8 @@ public class Window2 extends JPanel implements ActionListener {
         cargoField.addActionListener(this);
         //cargoField.setRowSelectionInterval(0, 0);
 
+        final JPanel contentPane = new JPanel();
+		contentPane.add(background);
         add(locationLabel);
         add(locationField);
         add(cargoLabel);
@@ -50,20 +55,13 @@ public class Window2 extends JPanel implements ActionListener {
         add(locationLabel);
         add(locationField);
         
-        
         JRadioButton threeJumpsButton = new JRadioButton(threeJumps);
         threeJumpsButton.setActionCommand(threeJumps);
 
         ButtonGroup group = new ButtonGroup();
         group.add(threeJumpsButton);
      
-        threeJumpsButton.setActionCommand(threeJumps);
-        //Register a listener for the check boxes.
-       // threeJumpsButton.addActionListener(boxListener);
-       // glassesButton.addItemListener((ItemListener) boxListener);
-        //hairButton.addItemListener((ItemListener) boxListener);
-        //teethButton.addItemListener((ItemListener) boxListener);
-        
+        threeJumpsButton.setActionCommand(threeJumps);   
     }
 
 	@Override

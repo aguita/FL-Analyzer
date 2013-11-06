@@ -1,5 +1,6 @@
 package windows;
 
+import java.awt.BorderLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
@@ -22,10 +23,12 @@ public class Window1 extends JPanel {
     private void init() 
     {
     	
-    	JLabel background = new JLabel(new ImageIcon("/Images/backGroundImage.png"));
+    	//JLabel background = new JLabel(new ImageIcon("/Images/backGroundImage.png"));
 
         final JButton clickButton = new JButton("CLICK ME");
-        final JButton dontClickButton = new JButton("DON\'T CLICK ME");     
+        final JButton dontClickButton = new JButton("DON\'T CLICK ME");    
+        final JLabel background = new JLabel(new ImageIcon("D:\\Users\\Zach\\git\\FL-Analyzer3\\Images\\backGroundImage.png"));
+  
 
         action = new ActionListener()
         {
@@ -44,11 +47,12 @@ public class Window1 extends JPanel {
             }
         };
 
-        add(background);
+        //add(background);
         clickButton.addActionListener(action);
         dontClickButton.addActionListener(action);
 
         add(clickButton);
         add(dontClickButton);
+        this.add(background);
     }
 }
