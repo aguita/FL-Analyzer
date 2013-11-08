@@ -16,13 +16,18 @@ import javax.swing.ListSelectionModel;
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Toolkit;
+import javax.swing.event.ChangeListener;
+import javax.swing.event.ChangeEvent;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
 
 public class MainGUI {
 
 	private JFrame frmFreelancerAnalyzer;
 	private JTextField textField;
 	@SuppressWarnings("rawtypes")
-	DefaultListModel listModel;
+	static DefaultListModel listModel;
+	ShipListListener shipListListener;
 
 	//Launch the application.
 
@@ -75,17 +80,26 @@ public class MainGUI {
 		panel.add(lblSearch);
 		
 		listModel = new DefaultListModel();
-        listModel.addElement("Ship One");
-        listModel.addElement("Ship Two");
-        listModel.addElement("Ship Three");
 		
-		JList list = new JList(listModel);
+		final JList list = new JList(listModel);
 		list.setBounds(10, 117, 86, 423);
 		list.setSelectionMode(ListSelectionModel.SINGLE_INTERVAL_SELECTION);
 		list.setLayoutOrientation(JList.VERTICAL);
 		panel.add(list);
 		
-		JRadioButton rdbtnShips = new JRadioButton("Ships");
+		final JRadioButton rdbtnShips = new JRadioButton("Ships");
+		rdbtnShips.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				if (rdbtnShips.isSelected()){
+				    listModel.addElement("Ship One");
+			        listModel.addElement("Ship Two");
+			        listModel.addElement("Ship Three");
+			        list.repaint();
+			        
+					}else {
+						listModel.removeAllElements();
+			}
+		}});
 		rdbtnShips.setForeground(Color.WHITE);
 		rdbtnShips.setOpaque(false);
 		rdbtnShips.setBounds(6, 52, 109, 23);
