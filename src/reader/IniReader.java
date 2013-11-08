@@ -4,12 +4,11 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
-import java.io.File;
+
 import objects.GoodsLookup;
 import objects.ini.Base;
 import objects.ini.Commodity;
 import objects.ini.Good;
-import java.io.FileReader;
 import objects.ini.Ship;
 
 import org.apache.commons.io.IOUtils;

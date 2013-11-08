@@ -5,6 +5,10 @@ public class Commodity extends Good {
 	private double rankRequired, repNeeded, minStock, maxStock, noSell,
 			priceMultiplier;
 
+	// TODO: I should modify this so I'm getting an overall lookup/status -- not
+	// worrying about things. I should add a DOES this base sell an item, or
+	// just buy it? That would help for looking upt hte prices, etc.
+
 	public double getRankRequired() {
 		return rankRequired;
 	}
