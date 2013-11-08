@@ -40,14 +40,14 @@ public class TestReader {
 				.equalsIgnoreCase("C:\\Users\\Ags\\AppData\\Local\\Discovery Freelancer 4.87.0"));
 		assertTrue(
 				"Size should be 72361, but is : "
-						+ Reader.getFile(new File(
+						+ Reader.getFileSize(new File(
 								"C:\\Users\\Ags\\AppData\\Local\\Discovery Freelancer 4.87.0\\Uninstall.exe")),
-				Reader.getFile(new File(
+				Reader.getFileSize(new File(
 						"C:\\Users\\Ags\\AppData\\Local\\Discovery Freelancer 4.87.0\\Uninstall.exe")) == 72361);
 		assertTrue(
 				"Size should be 72361, but is : "
-						+ Reader.getFileFromMainDirectory("Uninstall.exe"),
-				Reader.getFileFromMainDirectory("Uninstall.exe") == 72361);
+						+ Reader.getFileSizeFromMainDirectory("Uninstall.exe"),
+				Reader.getFileSizeFromMainDirectory("Uninstall.exe") == 72361);
 	}
 
 	@Test
@@ -60,8 +60,8 @@ public class TestReader {
 		sb.append("market_commodities.ini");
 		assertTrue(
 				"Size should be 1807986, but is : "
-						+ Reader.getFileFromMainDirectory(sb.toString()),
-				Reader.getFileFromMainDirectory(sb.toString()) == 1807986);
+						+ Reader.getFileSizeFromMainDirectory(sb.toString()),
+				Reader.getFileSizeFromMainDirectory(sb.toString()) == 1807986);
 	}
 
 	@Test
@@ -74,8 +74,8 @@ public class TestReader {
 		sb.append("prices.cfg");
 		assertTrue(
 				"Size should be 14740, but is : "
-						+ Reader.getFileFromMainDirectory(sb.toString()),
-				Reader.getFileFromMainDirectory(sb.toString()) == 14740);
+						+ Reader.getFileSizeFromMainDirectory(sb.toString()),
+				Reader.getFileSizeFromMainDirectory(sb.toString()) == 14740);
 	}
 
 	@Test
@@ -88,7 +88,7 @@ public class TestReader {
 		sb.append("prices.cfg");
 		assertTrue(
 				"Size should be 14740, but is : "
-						+ Reader.getFileFromMainDirectory(sb.toString()),
-				Reader.getFileFromMainDirectory(sb.toString()) == 14740);
+						+ Reader.getFileSizeFromMainDirectory(sb.toString()),
+				Reader.getFileSizeFromMainDirectory(sb.toString()) == 14740);
 	}
 }
