@@ -4,7 +4,6 @@ import java.awt.EventQueue;
 
 import javax.swing.JFrame;
 import javax.swing.JPanel;
-
 import javax.swing.DefaultListModel;
 import javax.swing.JTextField;
 import javax.swing.JLabel;
@@ -13,21 +12,29 @@ import javax.swing.JRadioButton;
 import javax.swing.JTextArea;
 import javax.swing.ImageIcon;
 import javax.swing.ListSelectionModel;
+
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Toolkit;
+
 import javax.swing.event.ChangeListener;
 import javax.swing.event.ChangeEvent;
+
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
+import java.util.ArrayList;
 
 public class MainGUI {
 
 	private JFrame frmFreelancerAnalyzer;
 	private JTextField textField;
 	@SuppressWarnings("rawtypes")
-	static DefaultListModel listModel;
+	static DefaultListModel NewModel;
 	ShipListListener shipListListener;
+
+	//Atempt at listing ships
+	private ArrayList<String> shipNames;
+	
 
 	//Launch the application.
 
@@ -79,9 +86,9 @@ public class MainGUI {
 		lblSearch.setBounds(10, 11, 46, 14);
 		panel.add(lblSearch);
 		
-		listModel = new DefaultListModel();
+		NewModel = new DefaultListModel();
 		
-		final JList list = new JList(listModel);
+		final JList list = new JList(NewModel);
 		list.setBounds(10, 117, 86, 423);
 		list.setSelectionMode(ListSelectionModel.SINGLE_INTERVAL_SELECTION);
 		list.setLayoutOrientation(JList.VERTICAL);
@@ -91,13 +98,11 @@ public class MainGUI {
 		rdbtnShips.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				if (rdbtnShips.isSelected()){
-				    listModel.addElement("Ship One");
-			        listModel.addElement("Ship Two");
-			        listModel.addElement("Ship Three");
+					new gui.ParseToList().sendToList(list, NewModel);
 			        list.repaint();
 			        
 					}else {
-						listModel.removeAllElements();
+						NewModel.removeAllElements();
 			}
 		}});
 		rdbtnShips.setForeground(Color.WHITE);
